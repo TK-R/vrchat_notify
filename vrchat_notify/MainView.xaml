@@ -1,0 +1,23 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VRChat_Notify"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="VRChat_Notify.MainView"
+    
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <muxc:NavigationView x:Name="nvSample" PaneDisplayMode="Auto"  SelectionFollowsFocus="Enabled" SelectionChanged="NavigationView_SelectionChanged" IsBackButtonVisible="Collapsed">
+        <muxc:NavigationView.MenuItems>
+            <muxc:NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" />
+            <muxc:NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" />
+            <muxc:NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" />
+            <muxc:NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" />
+        </muxc:NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame"/>
+    </muxc:NavigationView>
+</Page>
