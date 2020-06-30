@@ -34,7 +34,17 @@ namespace VRChat_Notify
             if(args.IsSettingsSelected)
             {
                 ContentFrame.Navigate(typeof(AccountView));
+                return;
             }
+
+            var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
+            if (selectedItem != null)
+            {
+                string selectedItemTag = ((string)selectedItem.Tag);
+                Type pageType = Type.GetType("VRChat_Notify." + selectedItemTag);
+                ContentFrame.Navigate(pageType);
+            }
+
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VRChat_Notify"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="VRChat_Notify.MyProfileView"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Custom:PersonPicture Grid.Column="0" Margin="20,26,20,0" Initials="VR" VerticalAlignment="Top" ProfilePicture="{Binding MyProfile.CurrentAvatarThumbnailImage.Value}" Height="91" />
+
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="20,26" Text="User ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="20,50" Text="User Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="20,74" Text="Display Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Margin="20,98" Text="Last Login" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Grid.Column="2" Margin="0,26" Text="{Binding MyProfile.Id.Value}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="2" Margin="0,50" Text="{Binding MyProfile.UserName.Value}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="2" Margin="0,74" Text="{Binding MyProfile.DisplayName.Value}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="2" Margin="0,98" Text="{Binding MyProfile.LastLogin.Value}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

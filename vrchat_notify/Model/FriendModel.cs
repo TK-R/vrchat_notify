@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Reactive.Bindings;
 
-namespace VRChat_Notify
+namespace VRChat_Notify.Model
 {
-    public class MainViewModel
+    public class FriendModel
     {
-        public MainViewModel()
-        {
-        }
+
     }
 }

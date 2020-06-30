@@ -8,19 +8,14 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VRChatApi.Classes;
-using VRChatApi.Logging;
 
 
 namespace VRChatApi.Endpoints
 {
     public class WorldApi
     {
-        private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-
         public async Task<WorldResponse> Get(string id)
         {
-            Logger.Debug(() => $"Getting world info with ID: {id}");
-
             HttpResponseMessage response = await Global.HttpClient.GetAsync($"worlds/{id}?apiKey={Global.ApiKey}");
 
             var res = await Utils.ParseResponse<WorldResponse>(response);
@@ -40,8 +35,6 @@ namespace VRChatApi.Endpoints
             string userId = null, string keyword = null, string tags = null, string excludeTags = null,
             ReleaseStatus? releaseStatus = null, int offset = 0, int count = 20)
         {
-            Logger.Debug(() => "Getting world list");
-
             var param = new StringBuilder();
 
             param.Append($"&n={count}");
@@ -122,8 +115,6 @@ namespace VRChatApi.Endpoints
 
         public async Task<WorldMetadataResponse> GetMetadata(string id)
         {
-            Logger.Debug(() => $"Getting world metadata with ID: {id}");
-
             HttpResponseMessage response = await Global.HttpClient.GetAsync($"worlds/{id}/metadata?apiKey={Global.ApiKey}");
 
             return await Utils.ParseResponse<WorldMetadataResponse>(response);
@@ -131,8 +122,6 @@ namespace VRChatApi.Endpoints
 
         public async Task<WorldInstanceResponse> GetInstance(string worldId, string instanceId)
         {
-            Logger.Debug(() => $"Getting world instance with world ID: {worldId} and instance ID {instanceId}");
-
             HttpResponseMessage response = await Global.HttpClient.GetAsync($"worlds/{worldId}/{instanceId}?apiKey={Global.ApiKey}");
 
             WorldInstanceResponse res = null;
@@ -140,7 +129,6 @@ namespace VRChatApi.Endpoints
             if (response.IsSuccessStatusCode)
             {
                 string text = await response.Content.ReadAsStringAsync();
-                Logger.Debug(() => $"JSON received: {text}");
                 var json = JObject.Parse(text);
 
                 res = new WorldInstanceResponse

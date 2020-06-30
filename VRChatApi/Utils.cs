@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using VRChatApi.Logging;
 
 namespace VRChatApi
 {
@@ -25,8 +24,6 @@ namespace VRChatApi
             }
         }
 
-        private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
-
         public static async Task<T> ParseResponse<T>(HttpResponseMessage responseMessage) where T : class
         {
             T res = null;
@@ -34,8 +31,6 @@ namespace VRChatApi
             if (responseMessage.IsSuccessStatusCode)
             {
                 var receivedJson = await responseMessage.Content.ReadAsStringAsync();
-
-                Logger.Debug(() => $"JSON received: {receivedJson}");
 
                 res = JsonConvert.DeserializeObject<T>(receivedJson);
             }

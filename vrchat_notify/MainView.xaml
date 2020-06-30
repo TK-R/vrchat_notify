@@ -7,17 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
     x:Class="VRChat_Notify.MainView"
-    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <muxc:NavigationView PaneDisplayMode="Auto" SelectionFollowsFocus="Enabled" 
+                         SelectionChanged="NavigationView_SelectionChanged" IsBackButtonVisible="Collapsed">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Icon="OutlineStar" Content="My Profile" Tag="MyProfileView" />
+                <muxc:NavigationViewItem Icon="People" Content="Friend" x:Name="SamplePage2Item" />
+                <muxc:NavigationViewItem Icon="World" Content="World" x:Name="SamplePage3Item" />
+            </muxc:NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame"/>
+        </muxc:NavigationView>
+    </Grid>
 
-    <muxc:NavigationView x:Name="nvSample" PaneDisplayMode="Auto"  SelectionFollowsFocus="Enabled" SelectionChanged="NavigationView_SelectionChanged" IsBackButtonVisible="Collapsed">
-        <muxc:NavigationView.MenuItems>
-            <muxc:NavigationViewItem Icon="Play" Content="Item1" x:Name="SamplePage1Item" />
-            <muxc:NavigationViewItem Icon="Save" Content="Item2" x:Name="SamplePage2Item" />
-            <muxc:NavigationViewItem Icon="Refresh" Content="Item3" x:Name="SamplePage3Item" />
-            <muxc:NavigationViewItem Icon="Download" Content="Item4" x:Name="SamplePage4Item" />
-        </muxc:NavigationView.MenuItems>
-        <Frame x:Name="ContentFrame"/>
-    </muxc:NavigationView>
 </Page>
